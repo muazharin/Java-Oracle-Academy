@@ -1,0 +1,155 @@
+Type data yang ada di java
+Dibagi menjadi dua keluarga besar:
+1. Type data Primitive
+	-type data bawaan dari java language
+	-nama type menjadi "keyword"
+	-nama type semuanya menggunakan lower case(huruf kecil)
+2. Type data Object/Complex/User Defined
+	-type data yang dicreate oleh developer dengan mekanisme class,interface atau abstract class
+	-type ini bisa berasal dari library
+
+------->Type Data Primitive :
+	1.Bilangan Bulat (Integer)
+		-long (64bit atau 8bytes)
+		-int (32bit atau 4bytes)
+		-short (16bit atau 2bytes)
+		-byte (8bit atau 1bytes)
+		makin besar bit,makin jauh range(makin besar angka yang bisa disimpan)
+		Rumus Jangkauan : ((2^n - 1)/2)
+	2.Bilangan Pecahan (Floating Point)
+		-double (64bit atau 8bytes)
+		-float (32bit atau 4bytes)
+		yang membedakan adalah jumlah point desimal
+		-double -> 34 angka dibelakang desimal
+		-float -> 17 angka dibelakang desimal
+	3.Karakter Tunggal (single char)
+		-char -> 16 bit atau 2bit (used unicode) agar bisa menampung selain karakter standar
+	4.Boolean (contains true || false)
+		-boolean (float dependent)
+
+Cara mendeklarasikan variable
+
+<type> nama_variabel [=value];
+contoh : int uang;
+	 int angka=100;
+
+Control Stucture -> tool yang digunakan untuk mengatur jalannya program
+1.Percabangan / branching (digunakan untuk mengambil keputusan)
+	-if
+	-if-else
+	-switch
+2.Perulangan/Looping -> digunakan untuk melakukan ssuatu berulang-ulang
+	-for
+	-while
+	-do..while
+
+Function/method (block code,punya nama,bisa dipanggil berulang)
+Jenis method:
+void(tanpa return value)->biasa disebut dengan procedure
+non-void(punya return value)->biasa disebut dengan function
+
+Prinsip OOP
+1.encapsulation yaitu membuat type data baru, dengan cara membungkus/mengkapsul field & data
+	-class(blueprint/cetakan dari object)
+	-contoh:
+	
+		class(general)				object(spesifik)
+		cetakan roti				berbagai macam roti
+		manusia					amir,budi,dll.
+
+	-cara mendesign class:
+		->amati object di dunia nyata, lalu lakukan listing:
+			1.dia punya apa? (fields,properties)
+				->bentuknya variabel
+			2.dia bisa apa? (behaviour,method)
+				->bentuknya method
+	
+Ekstensi Software Java
+.class-> hasil kompilasi awal
+.jar(java archive)->untuk aplikasi JSE/console/desktop/library
+.war(web archive)->untuk aplikasi bebasis Web
+.sar(SOA archive)
+
+cara mengelompokan class:
+-buat folder (misal: sampel)
+-masukkan file class yang sudah jadi ke dalam file sampel tersebut
+-buat file di notepad/notepad++ berisikan:"Main-Class:<spasi><NamaFileMainClass><enter>"
+	->contohnya: "Main-Class: TestMobil
+		     "
+-buka folder sampel lalu buat lagi folder baru (namanya harus :"META-INF")
+-simpan file yang telah dibuat pada point kedua ke dalam file META-INF dan harus diberi nama "MANIFEST.MF"
+-jika sudah, kelompokkan file class yang ada dan folder META-INF dalam format .zip dengan nama archive berekstensikan .jar
+-aplikasi siap dirunning
+
+cara menjalankan aplikasi yang sudah dibuat,melalui cmd yaitu dengan mengetikkan java -jar <nama archive>.jar
+contohnya: "java -jar coba.jar"
+
+Aturan Static
+stati calls static (available)
+non-static calls static (available)
+stati calls non-static (non-available)
+non-static calls non-static (available)
+
+Constructor yaitu block code, dengan ciri-ciri:
+	a.mirip seperti method,tetapi tidak ada "return type"
+	b.nama persis seperti nama class
+	c.dipanggil otomatis ketika create object
+	d.digunakan untuk inisialisasi fields
+	
+	-Jenis Construct
+	1.Default(tanpa parameter)
+	  ->jika sebuah class memilikinya,maka kita bisa create object secara default
+	2.Non-Default(dengan parameter)
+	  ->jika sebuah class HANYA memiliki default constructor, maka kita tidak bisa create object dengan cara default
+
+Inheritence(pewarisan)
+Jika kita membuat object dari sebuah class turunan, maka di memory, akan tercreate juga object dari parent class
+
+{
+	int a=10;
+	int b=10;
+	if(a==b) //ini hanya akan akurat untuk type data primitive
+}
+
+Java Access Modifier(digunakan untuk mengontrol visibilitas class/method/field)
+
+						DEFAULT		PUBLIC		PRIVATE		PROTECTED
+
+1.Akses dari 1 package				YES		YES		NO		NO
+2.Akses dari object yang beda package		NO		YES		NO		NO
+3.Akses dari dalam class			YES		YES		YES		YES
+4.Akses dari turunan 1 package			YES		YES		NO		YES
+5.Akses dari turunan beda package		NO		YES		NO		YES
+
+
+Best practices menggunakan access control
+1.buat semua field PRIVATE
+2.setiap field buatkan method get(mengambil value) & set(mengubah value)
+
+Jenis Inner Class
+1.Ordinary Class
+2.Anonymous Inner Class
+3.Static Inner Class
+
+Exception Handling
+Jenis Exception:
+1.Checked->wajib dilabeli "throws" atau wajib dihandle
+2.Unchecked->tidak wajib dilabeli "throws" atau tidak wajib dihandle
+
+Jenis2 Error:
+1.Syntax Error(karena salah penulisan)
+	-error yang paling mudah
+	-yg bertugas menemukan jenis error ini adalah compiler
+2.Runtime Error
+	-secara syntax ok
+	-ketika running error
+3.Logic Error
+	-syntax ok
+	-running ok
+	-result error
+
+Keyword yang bisa digunakan untuk menghandle terjadinya error
+1.try
+2.catch
+3.finally
+4.throw
